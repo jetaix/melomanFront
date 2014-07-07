@@ -1,0 +1,20 @@
+<div ng-controller="CategoryCtrl">
+  <div class="container" id="sound">
+    <div class="row">
+      <div class="col-md-12">
+        category page
+        <div ng-repeat="sound in dataCategory.data" class="box col-md-3 col-sm-4 animated fadeIn" >
+			<div ng-click="streamSound(sound.id_soundcloud); active = !active">
+              <p class="title">
+                <h1><a>{{ sound.author_song }}</a></h1>
+                <h2>{{ sound.title_song }}</h2>
+                <img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}">
+              </p>
+            </div>
+            <h3 ng-click="changeView();">{{ sound.title_category }}</h3>
+            <button ng-click="streamSound(sound.id_soundcloud);">Play</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

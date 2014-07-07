@@ -1,0 +1,24 @@
+<div ng-controller="SongCtrl">
+<input tabindex="1" type="text" class="form-control" ng-model="searchText" placeholder="filter by tag, artist, title, genre" autofocus>
+  <div class="container" id="sound">
+    <div class="row">
+      <div class="col-md-12">
+        <div ng-repeat="sound in dataSound.data | filter:searchText" class="box col-md-3 col-sm-4 animated fadeIn" >
+          <div class="innerbox" ng-click="streamSound(sound.id_soundcloud); active = !active" ng-model="active">
+            <p class="title">
+              <h1><a>{{ sound.author_song }}</a></h1>
+              <h2>{{ sound.title_song }}</h2>
+              <h3>{{ sound.tag_song }}</h3>
+              <h4>Update date: {{ sound.udate_song }}</h4>
+              <div><img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}"> </div>
+            </p>
+          </div>
+          <div ng-if="active" class="page-song show">
+            <h1><a>{{ sound.author_song }}</a></h1>
+            <button ng-click="active = !active">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
