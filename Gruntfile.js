@@ -27,6 +27,13 @@ module.exports = function (grunt) {
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
+      css: {
+        files: '<%= yeoman.app %>/*.scss',
+        tasks: ['sass'],
+        options: {
+          livereload: true,
+        },
+      },
       bower: {
         files: ['bower.json'],
         tasks: ['bowerInstall']
@@ -60,6 +67,13 @@ module.exports = function (grunt) {
         ]
       }
     },
+    sass: {                              // Task
+        dist: {                            // Target
+          files: {                         // Dictionary of files
+            '<%= yeoman.app %>/styles/main.css': '<%= yeoman.app %>/styles/main.scss'
+          }
+        }
+      },
 
     // The actual grunt server settings
     connect: {
@@ -217,61 +231,6 @@ module.exports = function (grunt) {
       }
     },
 
-    // Performs rewrites based on rev and the useminPrepare configuration
-    usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: ['<%= yeoman.dist %>']
-      }
-    },
-
-    // The following *-min tasks produce minified files in the dist folder
-    cssmin: {
-      options: {
-        root: '<%= yeoman.app %>'
-      }
-    },
-
-    imagemin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.{png,jpg,jpeg,gif}',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    svgmin: {
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/images',
-          src: '{,*/}*.svg',
-          dest: '<%= yeoman.dist %>/images'
-        }]
-      }
-    },
-
-    htmlmin: {
-      dist: {
-        options: {
-          collapseWhitespace: true,
-          collapseBooleanAttributes: true,
-          removeCommentsFromCDATA: true,
-          removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.dist %>',
-          src: ['*.html', 'views/{,*/}*.html'],
-          dest: '<%= yeoman.dist %>'
-        }]
-      }
-    },
-
     // ngmin tries to make the code safe for minification automatically by
     // using the Angular long form for dependency injection. It doesn't work on
     // things like resolve or inject so those have to be done manually.
@@ -423,6 +382,11 @@ module.exports = function (grunt) {
       'concurrent:server',
       'connect:livereload',
       'watch'
+  ]);
+
+  grunt.registerTask('css', [
+    'sass',
+    'watch'
   ]);
 
 
