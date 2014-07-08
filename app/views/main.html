@@ -4,41 +4,44 @@
       <div class="col-md-12">
         <div ng-repeat="sound in dataSound.data | filter:searchText" class="box col-md-3 col-sm-4 animated fadeIn" >
           <div class="innerbox" ng-model="active">
-            <div ng-click="streamSound(sound.id_soundcloud); active = !active">
-              <p class="title">
-                <h1><a>{{ sound.author_song }}</a></h1>
-                <h2>{{ sound.title_song }}</h2>
-                <img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}">
-              </p>
+            <div plangular data-src="{{ sound.url_soundcloud }}">
+              <div ng-click="player.play(track); active = !active">
+                <p class="title">
+                  <h1><a>{{ sound.author_song }}</a></h1>
+                  <h2>{{ sound.title_song }}</h2>
+                  <img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}">
+                </p>
+              </div>
+              <h3 ng-click="changeView(sound.id_category, sound.title_category);">{{ sound.title_category }}</h3>
+              <div class="control">
+                  <a href="" ng-click="player.play(track)" ng-hide="player.playing == track">
+                    <div plangular-icon="play">Play</div>
+                  </a>
+                  <a href="" ng-click="player.pause()" ng-show="player.playing == track">
+                    <div plangular-icon="pause">Pause</div>
+                  </a>
+                  <div class="bd">
+                    <progress value="{{ currentTime / duration }}" ng-click="seekTo($event)">{{ currentTime / duration }}</progress>
+                  </div>
+              </div>
+              <div ng-show="active" class="page-song" ng-style="{ 'background-image': 'url(http://dev.dashboard-meloman.com:8888/assets/img/bg/ sound.image_bg )'}">
+                  <h1><a>{{ sound.author_song }}</a></h1>
+                  <h2>{{ sound.title_song }}</h2>
+                  <h3>{{ sound.title_category }}</h3>
+                  <a ng-click="player.play(track)" ng-hide="player.playing == track">play</a>
+                  <a href="" ng-click="player.pause()" ng-show="player.playing == track">
+                    <div plangular-icon="pause">Pause</div>
+                  </a>
+                  <div class="bd">
+                    <progress value="{{ currentTime / duration }}" ng-click="seekTo($event)">{{ currentTime / duration }}</progress>
+                  </div>
+                  <img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}">
+                  <button class="close" ng-click="active=false">Close</button>
+              </div>
             </div>
-            <h3 ng-click="changeView(sound.id_category);">{{ sound.title_category }}</h3>
-            <div id="control" ng-model="play">
-              <button ng-click="streamSound(sound.id_soundcloud, play = !play);">Play {{ play }}</button>
-            </div>
-          </div>
-          <div ng-show="active" class="page-song" ng-style="{ 'background-image': 'url(http://dev.dashboard-meloman.com:8888/assets/img/bg/{{ sound.image_bg }} )'}">
-              <h1><a>{{ sound.author_song }}</a></h1>
-              <h2>{{ sound.title_song }}</h2>
-              <h3>{{ sound.title_category }}</h3>
-              <img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}">
-              <button class="close" ng-click="active=false">Close</button>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-
-
-<!--  <div plangular data-src="{{ sound.}}">
-  <a href="" ng-click="player.play(track)" ng-hide="player.playing == track">
-    <div plangular-icon="play">play</div>
-  </a>
-  <a href="" ng-click="player.pause()" ng-show="player.playing == track">
-    <div plangular-icon="pause">pause</div>
-  </a>
-  <h1>{{ track.user.username }} - {{ track.title }}</h1>
-</div> -->

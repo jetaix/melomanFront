@@ -3,7 +3,7 @@
 angular.module('melomanApp')
   .controller('CategoryCtrl', function ($scope, $http, $routeParams) {
 
-    $scope.idCategory = ($routeParams.categoryID);
+    $scope.categoryName = ($routeParams.categoryName);
 
     $scope.getIdCate = function(id){
       console.log(id);
@@ -18,6 +18,13 @@ angular.module('melomanApp')
           // or server returns response with an error status.
         });
     };
-    $scope.getIdCate($scope.idCategory);
+
+    // A FAIRE DE MANIERE DYNAMIC
+    if ($scope.categoryName == 'pop') {
+      $scope.getIdCate(3);
+    }
+    else if ($scope.categoryName == 'soul') {
+      $scope.getIdCate(2);
+    }
 
 });

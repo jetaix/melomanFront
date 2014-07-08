@@ -35,11 +35,9 @@ angular.module('melomanApp')
     };
     $scope.getAllSound();
     // $scope.getOneSound(id);
-    $scope.pause = function(){
-      SC.pause('157585750');
-    };
-    $scope.changeView = function(id_category){
-      $location.path('category/'+id_category);
+
+    $scope.changeView = function(id_category, title_category){
+      $location.path('category/'+title_category);
     }
 
 });

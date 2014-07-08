@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular.module('melomanApp'),
-clientID = 'b54c0f76b20be90e6d13e95a590c7413',
+clientID = 'f944e2e1605cbe1de67e7b3c54b3a808',
 iconUrl = 'images/plangular-icons.svg';
 
 app.directive('plangular', function ($document, $rootScope, $http) {

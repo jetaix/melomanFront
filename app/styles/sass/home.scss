@@ -1,0 +1,91 @@
+@import 'var';
+@import 'font';
+main {
+	overflow: hidden;
+	width: 5000px;
+	padding-top: 50px;
+}
+.sound-wrapper {
+	width: 230px;
+	height: 230px;
+	margin: 1px;
+	background-image: url('#{$img-url}cover/1.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	float: left;
+	&.big {
+		width: 462px;
+		height: 462px;
+	}
+	&.middle {
+		width: 462px;
+		height: 462px;
+	}
+}
+.sound {
+	padding: 15px;
+	height: 200px;
+	color: #FFF;
+	text-transform: uppercase;
+	
+	position: relative;
+	.share {
+		opacity: 0;
+		@include transition-all;
+		ul li {
+			display: inline-block;
+			float: left;
+			height: 20px;
+			width: 30px;
+			background-repeat: no-repeat;
+			background-position: center;
+			&:nth-child(1) {
+				background-image: url('#{$img-url}social/fb.png');
+			}
+			&:nth-child(2) {
+				background-image: url('#{$img-url}social/tw.png');
+			}
+			&:nth-child(3) {
+				background-image: url('#{$img-url}social/like.png');
+			}
+			a {
+				display: block;
+				height: 20px;
+				width: 30px;
+			}
+		}
+	}
+	.category {
+		font-family: 'futura_md_btmedium';
+		font-size: 16px;
+	}
+	.description {
+		position: absolute;
+		bottom: 75px;
+	}
+	.title {
+		position: relative;
+		clear: both;
+		font-family: 'futura_lightregular';
+		font-size: 20px;
+	}
+	.author {
+		font-family: 'futura_lightregular';
+		font-size: 16px;
+	}
+	.bt-play {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		width: 35px;
+		height: 40px;
+		background-image: url('#{$img-url}play-l.png');
+		background-position: center;
+		cursor: pointer;
+	}
+	&:hover {
+		.share {
+			opacity: 1;
+		}
+	}
+}
