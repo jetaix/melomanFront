@@ -6,7 +6,7 @@ angular.module('melomanApp')
     $scope.categoryName = ($routeParams.categoryName);
 
     $scope.getIdCate = function(id){
-      console.log(id);
+
       $http({
         method: 'GET',
         url: 'http://dev.api-meloman.com:8888/v1/category/' + id}).
@@ -25,6 +25,48 @@ angular.module('melomanApp')
     }
     else if ($scope.categoryName == 'soul') {
       $scope.getIdCate(2);
+    }
+
+    switch ($scope.categoryName) {
+        case 'dub':
+            $scope.getIdCate(5);
+            break;
+        case 'hiohop':
+            $scope.getIdCate(5);
+            break;
+        case 'bo':
+            $scope.getIdCate(17);
+            break;
+        case 'soft':
+            $scope.getIdCate(7);
+            break;
+        case 'jazz':
+            $scope.getIdCate(8);
+            break;
+        case 'minimal':
+            $scope.getIdCate(9);
+            break;
+        case 'rap':
+            $scope.getIdCate(10);
+            break;
+        case 'instrumental':
+            $scope.getIdCate(11);
+            break;
+        case 'electro':
+            $scope.getIdCate(12);
+            break;
+        case 'deephouse':
+            $scope.getIdCate(13);
+            break;
+        case 'blues':
+            $scope.getIdCate(14);
+            break;
+        case 'mix':
+            $scope.getIdCate(15);
+            break;
+        case 'musique du monde':
+            $scope.getIdCate(16);
+            break;
     }
 
 });

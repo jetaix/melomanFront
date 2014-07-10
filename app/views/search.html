@@ -1,25 +1,81 @@
 
-<div ng-controller="SongCtrl">
-<input tabindex="1" type="text" class="form-control" ng-model="searchText" placeholder="filter by tag, artist, title, genre" autofocus>
-  <div class="container" id="sound">
-    <div class="row">
-      <div class="col-md-12">
-        <div ng-repeat="sound in dataSound.data | filter:searchText" class="box col-md-3 col-sm-4 animated fadeIn" >
-          <div class="innerbox" ng-click="streamSound(sound.id_soundcloud); active = !active" ng-model="active">
-            <p class="title">
-              <h1><a>{{ sound.author_song }}</a></h1>
-              <h2>{{ sound.title_song }}</h2>
-              <h3>{{ sound.tag_song }}</h3>
-              <h4>Update date: {{ sound.udate_song }}</h4>
-              <div><img ng-src="http://dev.dashboard-meloman.com:8888/assets/img/song/thumb/{{ sound.image_song }}"> </div>
-            </p>
-          </div>
-          <div ng-if="active" class="page-song show">
-            <h1><a>{{ sound.author_song }}</a></h1>
-            <button ng-click="active = !active">Close</button>
-          </div>
+<div ng-controller="SongCtrl" class="Fullheight">
+<div id="container">
+
+      <img class="close" src="images/icones/close.png" alt="" />
+ 
+      <h1>Search</h1>
+      <span id="subtitle">Something dude...</span>
+      <form action="">
+        <input type="text" ng-model="searchText" placeholder="" ng-keypress="getAllArtistSound(searchText)" autofocus />
+        <input type="submit"/>
+      </form>
+
+        <div class="column column_small">
+
+          <div class="subheader">
+            <h2>Tracks</h2>
+            <h3>10 results</h3>
+            <img src="images/icones/bt_more.png" alt="" />
+          </div><!-- end of .subheader -->
+
+          <ul>
+            <div ng-repeat="sound in dataSound.data | filter:searchText | limitTo: 7" class="animated fadeIn" >
+              <li>
+                <div plangular data-src="{{ sound.url_soundcloud }}">
+                  <div>
+                    <img ng-src="http://jonathan-etaix.fr/meloman/dashboard/assets/img/song/{{ sound.image_song }}" />
+                  </div>
+                  <div>
+                    <p class="name_track">{{ sound.title_song | characters:30 : false }}</p></br>
+                    <p>{{ sound.artist_song }}</p>
+                  </div>
+                  <div class="control">
+                      <a href="" class="bt-play" ng-click="player.play(track)" ng-hide="player.playing == track">
+                      </a>
+                      <a href="" class="bt-pause" ng-click="player.pause()" ng-show="player.playing == track">
+                      </a>
+                  </div>
+                </div>
+              </li>
+            </div>
+
+          </ul>
+
         </div>
-      </div>
+
+        <div class="column column_small">
+          <div class="subheader">
+            <h2>Artists</h2>
+            <h3>8 results</h3>
+            <img src="images/icones/bt_more.png" alt="" />
+          </div><!-- end of .subheader -->
+
+          <ul>
+            <div ng-repeat="sound in dataArtistSound.data | filter:searchText | limitTo: 7" class="animated fadeIn" >
+              <li>
+                <div plangular data-src="{{ sound.url_soundcloud }}">
+                  <div>
+                    <img ng-src="http://jonathan-etaix.fr/meloman/dashboard/assets/img/song/{{ sound.image_song }}" />
+                  </div>
+                  <div>
+                    <p class="name_track">{{ sound.title_song | characters:30 : false }}</p></br>
+                    <p>{{ sound.artist_song }}</p>
+                  </div>
+                  <div class="control">
+                      <a href="" class="bt-play" ng-click="player.play(track)" ng-hide="player.playing == track">
+                      </a>
+                      <a href="" class="bt-pause" ng-click="player.pause()" ng-show="player.playing == track">
+                      </a>
+                  </div>
+                </div>
+              </li>
+            </div>
+
+          </ul>
+
+        </div>
+
+
     </div>
-  </div>
 </div>

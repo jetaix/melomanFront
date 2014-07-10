@@ -5,7 +5,8 @@ angular
     'ngCookies',
     'ngResource',
     'ngSanitize',
-    'ngRoute'
+    'ngRoute',
+    'truncate'
   ])
   .config(function ($routeProvider) {
     $routeProvider
