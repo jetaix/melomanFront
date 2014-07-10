@@ -1,0 +1,124 @@
+@import 'var';
+@import 'font';
+html {
+	font-size: 100%;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	max-height: 100%;
+}
+ul {
+	margin: 0;
+	padding: 0;
+}
+body {
+	-moz-font-feature-settings: "liga=1";
+	-moz-font-feature-settings: "liga";
+	-ms-font-feature-settings: "liga" 1;
+	-o-font-feature-settings: "liga";
+	font-feature-settings: "liga";
+	-webkit-font-smoothing: antialiased;
+	font-smooth: always;
+	text-rendering: optimizeLegibility;
+	overflow-x: hidden; 
+}
+.left {
+	float: left;
+}
+.right {
+	float: right;
+}
+.page-song {
+    position: fixed;
+    top: 0 ;
+    left: 0;
+    background: #dedede;
+    width: 100%;
+    z-index: 2;
+    height: 100%;
+}
+.close {
+    position: absolute;
+    z-index: 9999;
+    right: 10px;
+    top: 10px;
+}
+.container {
+	padding-top: 60px;
+}
+header {
+	display: none;
+	position: fixed;
+	z-index: 2;
+	width: 100%;
+	background-color: #fff;
+	height: 50px;
+	#player {
+		margin-left: 50px;
+		position: relative;
+		#next {
+			margin: 10px 10px;
+		}
+		#play {
+			
+		}
+		#prev {
+			margin: 10px 10px;
+		}
+	}
+	#control {
+		margin-left: 50px;
+		#volume, #randomn, #repeat {
+		}
+		img {
+			margin: 10px 20px;
+		}
+	}
+	#sound {
+		margin-left: 50px;
+		color: #000;
+		text-transform: uppercase;
+		#title {
+			font-size: 12px;
+			font-family: 'futura_md_btbold';
+		}
+		#author {
+			font-size: 11px;
+			font-family: 'futura_md_btmedium';
+		}
+		#time {
+			margin-left: 40px;
+			position: relative;
+			height: 2px;
+			margin-top: 7px;
+			background-color: #e5e5e5;
+			width: 367px;
+			display: inline-flex;
+			span#duration {
+				height: 2px;
+				background-color: #000;
+				width: 12%;
+			}
+			span#timer {
+				position: absolute;
+				right: 0;
+				top: -20px;
+			}
+		}
+	}
+	#share {
+		margin-left: 50px;
+		ul {
+			li {
+				display: inline-block;
+				float: left;
+				margin: 0 10px;
+			}
+		}
+	}
+	#search {
+		margin-right: 30px;
+	}
+}

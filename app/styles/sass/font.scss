@@ -1,0 +1,35 @@
+@import 'var';
+
+/* Font-Face declaration */
+
+@font-face {
+    font-family: 'futura_md_btbold';
+    src: url('#{$font-url}/futura_bold_bt.eot');
+    src: url('#{$font-url}/futura_bold_bt.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-url}/futura_bold_bt.woff') format('woff'),
+         url('#{$font-url}/futura_bold_bt.ttf') format('truetype'),
+         url('#{$font-url}/futura_bold_bt.svg#futura_md_btbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'futura_md_btmedium';
+    src: url('#{$font-url}/futura_md_bt_medium.eot');
+    src: url('#{$font-url}/futura_md_bt_medium.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-url}/futura_md_bt_medium.woff') format('woff'),
+         url('#{$font-url}/futura_md_bt_medium.ttf') format('truetype'),
+         url('#{$font-url}/futura_md_bt_medium.svg#futura_md_btmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'futura_lightregular';
+    src: url('#{$font-url}/futura_light.eot');
+    src: url('#{$font-url}/futura_light.eot?#iefix') format('embedded-opentype'),
+         url('#{$font-url}/futura_light.woff') format('woff'),
+         url('#{$font-url}/futura_light.ttf') format('truetype'),
+         url('#{$font-url}/futura_light.svg#futura_lightregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

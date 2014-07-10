@@ -1,0 +1,42 @@
+<div id="wrapper_category">
+    <ol>
+      <li>1</li>
+      <li>2</li>
+      <li class="current">3</li>
+    </ol>
+    
+    <div id="container_category">
+ 
+      <h1>#{{ categoryName }}</h1>
+      <span id="subtitle">108 Morceaux / 74 Artistes</span>
+
+      <div class="row">
+        <span class="pagination"><span class="current_page">03</span> /24</span>
+        <span class="more">
+          <span id="more_text">More</span> <img src="images/icones/bt_more.png" alt="" />
+        </span>
+      </div>
+
+      <ul>
+        <div ng-repeat="sound in dataCategory.data" class="li_cate animated fadeIn" >
+          <li>
+            <div plangular data-src="{{ sound.url_soundcloud }}">
+              <img ng-src="http://jonathan-etaix.fr/meloman/dashboard/assets/img/song/thumb/{{ sound.image_song }}" alt="" />
+              <p>
+                <span class="name_track">{{ sound.title_song | characters:30 : false }}</span>
+                <br />{{ sound.artist_song }}
+              </p>
+              <div class="control">
+                  <a href="" class="bt-play" ng-click="player.play(track)" ng-hide="player.playing == track">
+                  </a>
+                  <a href="" class="bt-pause" ng-click="player.pause()" ng-show="player.playing == track">
+                  </a>
+              </div>
+            </div>
+          </li>
+        </div>
+      </ul>
+
+    </div><!-- end #container_category -->
+  
+</div><!-- end #wrapper_category -->

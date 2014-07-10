@@ -11,52 +11,85 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/animate.css">
     <!-- endbuild -->
   </head>
   <body ng-app="melomanApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+    <header ng-controller="SongCtrl">
+      <div id="logo" class="left">
+        <img src="./images/logo.png">
+      </div>
+      <div id="player" class="left">
+        <div id="prev" class="left"><img src="./images/prev.png"></div>
+        <div id="play" class="left"><img src="./images/play.png"></div>
+        <div id="next" class="left"><img src="./images/next.png"></div>
+      </div>
+      <div id="control" class="left">
+        <div id="volume" class="left"><img src="./images/volume.png"></div>
+        <div id="randomn" class="left"><img src="./images/randomn.png"></div>
+        <div id="repeat" class="left"><img src="./images/repeat.png"></div>
+      </div>
+      <div id="sound" class="left">
+        <div id="title">Trompetenente</div>
+        <div id="author">Steve Hope</div>
+        <div id="time">
+          <span id="duration"></span>
+          <span id="timer">3:32 / 5:45</span>
+        </div>
+      </div>
+      <div id="share" class="left">
+        <ul>
+          <li><img src="./images/like.png"></li>
+          <li><img src="./images/twitter.png"></li>
+          <li><img src="./images/facebook.png"></li>
+        </ul>
+      </div>
+      <div id="search" ng-click="goSearch()" class="right">
+        <img src="./images/search.png">
+      </div>
+    </header>
+    <div ng-view="" class="Fullheight">
+    </div>
 
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
+    <script src="//connect.soundcloud.com/sdk.js"></script>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-truncate/dist/angular-truncate.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
-        <!-- endbuild -->
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/controllers/song.js"></script>
+    <script src="scripts/controllers/category.js"></script>
+    <script src="scripts/controllers/search.js"></script>
+
+    <script src="scripts/directives/plangular.js"></script>
+    <!-- endbuild -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://isotope.metafizzy.co/isotope.pkgd.js"></script>
+    <script type="text/javascript" src="http://isotope.metafizzy.co/bower_components/isotope-masonry-horizontal/masonry-horizontal.js"></script>
+
 </body>
 </html>

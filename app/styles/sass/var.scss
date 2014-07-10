@@ -1,0 +1,17 @@
+/* Variable declaration */
+$img-url: "../images/";
+$font-url: "./fonts";
+$font-family: Helvetica, Arial, sans-serif;
+$gold: #c89d63;
+$gold-dark: #b38b57;
+$black: #111;
+$grey: #808080;
+$beige: #f8f8f8;
+$dark: #252525;
+
+@mixin transition-all {
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	-o-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
