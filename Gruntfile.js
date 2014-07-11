@@ -55,15 +55,14 @@ module.exports = function (grunt) {
         ]
       }
     },
-    sass: {                              // Task
-        dist: {                            // Target
-          files: {                         // Dictionary of files
+      sass: {
+        dist: {
+          files: {
             '<%= yeoman.app %>/styles/layout.css': '<%= yeoman.app %>/styles/sass/layout.scss',
             '<%= yeoman.app %>/styles/home.css': '<%= yeoman.app %>/styles/sass/home.scss',
           }
         }
       },
-
     // The actual grunt server settings
     connect: {
       options: {
@@ -142,7 +141,6 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('serveur', [
-      'sass',
       'connect:livereload',
       'watch'
   ]);

@@ -1,9 +1,10 @@
-<div id="init" ng-show="init" class="animated fadeInUp"><img width="500" src="./images/logo.png"></div>
+<div id="init" ng-show="init" class="animated fadeInUp"><img src="./images/logo-intro.gif"></div>
 <div ng-controller="SongCtrl" class="Fullheight">
         
         <div ng-show="!init" class="Fullheight animated fadeIn">
         <div class="isotope" class="Fullheight">
-          <div ng-repeat="sound in dataSound.data | filter:searchText" class="sound-wrapper animated fadeIn" ng-style="{ 'background-image': 'url(http://jonathan-etaix.fr/meloman/dashboard/assets/img/song/{{ sound.image_song }} )'}">
+          <div ng-repeat="sound in dataSound.data | filter:searchText" class="sound-wrapper animated fadeIn" ng-style="{ 'background-image': 'url(http://dev.dashboard-meloman.com:8888/assets/img/song/{{ sound.image_song }} )'}">
+            <div class="mask_black"></div>
             <div class="sound" ng-model="active" data-scurl="{{ sound.url_soundcloud }}">
               <div plangular data-src="{{ sound.url_soundcloud }}">
                   <div ng-class="active ? 'fadeOut' : 'fadeInDown'">
@@ -34,7 +35,7 @@
                   </div>
 
                   <div ng-show="active" class="page-song animated" ng-class="active ? 'fadeInUp' : 'fadeOut'">
-                    <div id="bg_img" ng-style="{ 'background-image': 'url(http://jonathan-etaix.fr/meloman/dashboard/assets/img/bg/{{ sound.image_bg }} )'}">
+                    <div id="bg_img" ng-style="{ 'background-image': 'url(http://dev.dashboard-meloman.com:8888/assets/img/bg/{{ sound.image_bg }} )'}">
                       <div id="layer_bg">
                         <button class="close" ng-click="active=false">Close</button>
                         <div id="container_track">
@@ -47,9 +48,9 @@
                                 </a>
                                 <a href="" class="bt-pause" ng-click="player.pause()" ng-show="player.playing == track">
                                 </a>
-                              </div><!-- end #play -->
-                              <img width="100" src="http://jonathan-etaix.fr/meloman/dashboard/assets/img/song/{{ sound.image_song }}" alt="" />
-                            </div><!-- end #hexa_cover -->
+                              </div>
+                              <img width="100" src="http://dev.dashboard-meloman.com:8888/assets/img/song/{{ sound.image_song }}" alt="" />
+                            </div>
 
                             <span id="tag" ng-click="changeView(sound.id_category, sound.title_category);">#{{ sound.title_category }}</span>
                             <h1>{{ sound.title_song }}</h1>
