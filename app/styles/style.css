@@ -31,6 +31,7 @@
 html, body {
   max-height: 100%;
   padding: 0;
+  overflow-y: hidden;
   margin: 0;
   height: 100%; }
 
@@ -45,7 +46,8 @@ ul, li {
   float: right; }
 
 .isotope {
-  height: 100%;
+  top: 18px;
+  height: 99%;
   padding-top: 51px; }
 
 .isotope:after {
@@ -55,6 +57,12 @@ ul, li {
 .Fullheight {
   height: 100%;
   max-height: 100%;
+}
+.mask_black {
+  width: 100%;
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  height: 100%;
 }
 .btn {
   display: inline-block;
@@ -127,15 +135,17 @@ a.btn {
 
 #init {
   position: relative;
-  top: 40%;
-  left: 34%;
+  top: 32%;
+  width: 205px;
+  margin: 0 auto;
 }
 header {
   position: fixed;
   z-index: 2;
   width: 100%;
   background-color: #fff;
-  height: 50px; }
+padding: 5px;
+}
   header #logo {
     margin-left: 20px;
     margin-top: 4px; }
@@ -291,7 +301,7 @@ header {
 
 .page-song {
   position: fixed;
-  top: 50px;
+  top: 70px;
   left: 0;
   background-color: #dedede;
   height: 97%;
@@ -623,7 +633,7 @@ header {
   background-repeat: no-repeat;
   background-size: cover;
   color: #fff;
-  position: relative;
+  position: fixed;
   height: 100%;
   width: 100%; }
   #wrapper_category ol {
@@ -695,7 +705,7 @@ header {
       color: #fff;
       font-family: 'futura_lightregular';
       font-style: 13px;
-      padding: 10px 15px;
+      padding: 15px 15px;
       width: 320px; }
     #wrapper_category #container_category ul li p {
       margin: 0;
@@ -709,6 +719,11 @@ header {
       float: left; }
     #wrapper_category #container_category ul li span.name_track {
       font-weight: bold; }
+    #wrapper_category #container_category .li_cate {
+      height: 71px;
+      position: relative;
+      top: -23px;
+    }
     #wrapper_category #container_category .li_cate:nth-child(3n+3) {
       display: inline-block; }
     #wrapper_category #container_category .li_cate:nth-child(3n+1),
@@ -726,12 +741,13 @@ header {
       #wrapper_category ul .bt-play {
     display: block;
     float: right;
-    top: -39px;
+    top: -36px;
     position: relative;
     width: 30px;
     height: 34px;
-    background-image: url("../images/search/hover_play.png");
+    background-image: url("../images/play-l.png");
     background-repeat: no-repeat;
+    background-size: 27px;
     background-position: 95% 50%;
     opacity: 0;
     -webkit-transition: all 0.3s;
@@ -741,11 +757,11 @@ header {
   #wrapper_category ul .bt-pause {
     display: block;
     float: right;
-    top: -39px;
+    top: -36px;
     position: relative;
     width: 30px;
     height: 34px;
-    background-image: url("../images/icones/ico_pause.png");
+    background-image: url("../images/ico_pause.png");
     background-repeat: no-repeat;
     background-size: 27px;
     background-position: 95% 50%;
